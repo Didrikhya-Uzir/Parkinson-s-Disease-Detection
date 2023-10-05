@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parkinson's Disease Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        form {
+            max-width: 600px;
+            width: 100%;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Parkinson's Disease Prediction</h2>
+        <form id="parkinsonForm" action="{{ url_for('predict')}}"method="post">
+            <label for="MDVPFo">MDVP:Fo(Hz)</label>
+            <input type="text" id="MDVPFo" name="MDVPFo" required>
+
+            <label for="MDVPFhi">MDVP:Fhi(Hz)</label>
+            <input type="text" id="MDVPFhi" name="MDVPFhi" required>
+
+            <label for="MDVPFlo">MDVP:Flo(Hz)</label>
+            <input type="text" id="MDVPFlo" name="MDVPFlo" required>
+
+            <label for="MDVPJitter">MDVP:Jitter(%)</label>
+            <input type="text" id="MDVPJitter" name="MDVPJitter" required>
+
+            <label for="MDVPJitterAbs">MDVP:Jitter(Abs)</label>
+            <input type="text" id="MDVPJitterAbs" name="MDVPJitterAbs" required>
+
+            <label for="MDVPRAP">MDVP:RAP</label>
+            <input type="text" id="MDVPRAP" name="MDVPRAP" required>
+
+            <label for="MDVPPPQ">MDVP:PPQ</label>
+            <input type="text" id="MDVPPPQ" name="MDVPPPQ" required>
+
+            <label for="JitterDDP">Jitter:DDP</label>
+            <input type="text" id="JitterDDP" name="JitterDDP" required>
+
+            <label for="MDVPShimmer">MDVP:Shimmer</label>
+            <input type="text" id="MDVPShimmer" name="MDVPShimmer" required>
+
+            <label for="MDVPShimmerDB">MDVP:Shimmer(dB)</label>
+            <input type="text" id="MDVPShimmerDB" name="MDVPShimmerDB" required>
+
+            <label for="ShimmerAPQ3">Shimmer:APQ3</label>
+            <input type="text" id="ShimmerAPQ3" name="ShimmerAPQ3" required>
+
+            <label for="ShimmerAPQ5">Shimmer:APQ5</label>
+            <input type="text" id="ShimmerAPQ5" name="ShimmerAPQ5" required>
+
+            <label for="MDVPAPQ">MDVP:APQ</label>
+            <input type="text" id="MDVPAPQ" name="MDVPAPQ" required>
+
+            <label for="ShimmerDDA">Shimmer:DDA</label>
+            <input type="text" id="ShimmerDDA" name="ShimmerDDA" required>
+
+            <label for="NHR">NHR</label>
+            <input type="text" id="NHR" name="NHR" required>
+
+            <label for="HNR">HNR</label>
+            <input type="text" id="HNR" name="HNR" required>
+
+            <label for="RPDE">RPDE</label>
+            <input type="text" id="RPDE" name="RPDE" required>
+
+            <label for="DFA">DFA</label>
+            <input type="text" id="DFA" name="DFA" required>
+
+            <label for="spread1">spread1</label>
+            <input type="text" id="spread1" name="spread1" required>
+
+            <label for="spread2">spread2</label>
+            <input type="text" id="spread2" name="spread2" required>
+
+            <label for="D2">D2</label>
+            <input type="text" id="D2" name="D2" required>
+
+            <label for="PPE">PPE</label>
+            <input type="text" id="PPE" name="PPE" required>
+
+            <button type="submit">Submit</button>
+        </form>
+
+	<br>
+   	<br>
+   	{{ prediction_text }}
+    </div>
+
+</body>
+</html>
